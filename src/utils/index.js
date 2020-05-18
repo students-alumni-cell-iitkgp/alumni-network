@@ -1,13 +1,13 @@
 import dayjs from 'dayjs';
 
 export async function request(url) {
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
-  } catch (e) {
-    throw e;
-  }
+    try {
+		const res = await fetch(url);
+		const data = await res.json();
+		return data;
+    } catch (e) {
+		throw e;
+    }
 }
 
 export async function getCoordinates() {

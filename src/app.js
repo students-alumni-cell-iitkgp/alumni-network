@@ -12,14 +12,9 @@ import * as d3 from 'd3';
 const globeContainer = document.getElementById('globeViz');
 
 const colorScale = d3.scaleSequentialPow(d3.interpolateYlOrRd).exponent(1 / 4);
-const getVal = (feat) => {
-  return feat.covidData.confirmed / feat.properties.POP_EST;
-};
+const getVal = (feat) => feat.alumniData.count;
 
 let world;
-
-const flagEndpoint = 'https://corona.lmao.ninja/assets/img/flags';
-
 init();
 
 function init() {
@@ -32,20 +27,23 @@ function init() {
     .polygonSideColor(() => 'rgba(0, 100, 0, 0.05)')
     .polygonStrokeColor(() => '#111')
     .polygonLabel(
-      ({ properties: d, covidData: c }) => `
+      ({ properties: d, alumniData: c }) => `
             <div class="card">
-              <img class="card-img" src="${flagEndpoint}/${d.ISO_A2.toLowerCase()}.png" alt="flag" />
+              <img class="card-img" src="${"https://disease.sh/assets/img/flags/" + d["ISO_A2"].toLowerCase() + ".png"}" alt="flag" />
               <div class="container">
-                 <span class="card-title"><b>${d.NAME}</b></span> <br />
+                 <span class="card-title"><b>${d.ADMIN}</b></span> <br />
+                 <span class="card-total-cases">${numberWithCommas(
+                   c.count
+                 )} Alumni</span>
                  <div class="card-spacer"></div>
                  <hr />
                  <div class="card-spacer"></div>
-                 <span>Cases: ${numberWithCommas(c.confirmed)}</span>  <br />
-                 <span>Deaths: ${numberWithCommas(c.deaths)}</span> <br />
-                 <span>Recovered: ${numberWithCommas(
-                   c.recoveries
-                 )}</span> <br />
-                 <span>Population: ${d3.format('.3s')(d.POP_EST)}</span>
+                 <span>${numberWithCommas(c.chapters)} chapters</span> <br />
+                 <div class="card-spacer"></div>
+                 <hr />
+                 <div class="card-spacer"></div>
+                 <div class="bottom-info">
+                 </div>
               </div>
             </div>
           `
@@ -57,97 +55,52 @@ function init() {
           d === hoverD ? 'steelblue' : colorScale(getVal(d))
         )
     )
-    .polygonsTransitionDuration(200);
+    .polygonsTransitionDuration(300);
 
   getCases();
 }
 
-let dates = [];
-let countries = [];
-let featureCollection = [];
-
-// Play button
-const playButton = document.querySelector('.play-button');
-// Slider
-const slider = document.querySelector('.slider');
-// Slider date
-const sliderDate = document.querySelector('.slider-date');
-
 async function getCases() {
-  countries = await request(CASES_API);
-  featureCollection = (await request(GEOJSON_URL)).features;
+  let data_count = 0;
+  let chapters_count = 0;
+  const countries = await request(GEOJSON_URL);
+  const data = await request(CASES_API);
 
-  // world.polygonsData(countriesWithCovid);
-  document.querySelector('.title-desc').innerHTML =
-    'Hover on a country or territory to see cases, deaths, and recoveries.';
+  const countriesWithAlumni = [];
 
-  dates = Object.keys(countries.China);
+  const country_names = Object.keys(data);
+  country_names.forEach((item) => {
+      if(item != "NA"){
+        data_count += data[item].count;
+        chapters_count += data[item].chapters;
+      }
+      const countryIdxByName = countries.features.findIndex(
+        (i) => i.properties.ADMIN.toLowerCase() === item.toLowerCase()
+      );
 
-  // Set slider values
-  slider.max = dates.length - 1;
-  slider.value = dates.length - 1;
+      if (countryIdxByName !== -1) {
+        countriesWithAlumni.push({
+          ...countries.features[countryIdxByName],
+          alumniData: data[item],
+        });
+      }
+      else{
+        console.log(item);
+      }
 
-  slider.disabled = false;
-  playButton.disabled = false;
-
-  updateCounters();
-  updatePolygonsData();
-
-  updatePointOfView();
-}
-
-const infectedEl = document.querySelector('#infected');
-const deathsEl = document.querySelector('#deaths');
-const recoveriesEl = document.querySelector('#recovered');
-const updatedEl = document.querySelector('.updated');
-
-function updateCounters() {
-  sliderDate.innerHTML = dates[slider.value];
-
-  let totalConfirmed = 0;
-  let totalDeaths = 0;
-  let totalRecoveries = 0;
-
-  Object.keys(countries).forEach((item) => {
-    if (countries[item][dates[slider.value]]) {
-      const countryDate = countries[item][dates[slider.value]];
-      totalConfirmed += +countryDate.confirmed;
-      totalDeaths += +countryDate.deaths;
-      totalRecoveries += countryDate.recoveries ? +countryDate.recoveries : 0;
-    }
+    const maxVal = Math.max(...countriesWithAlumni.map(getVal));
+    colorScale.domain([0, maxVal]);
   });
 
-  infectedEl.innerHTML = numberWithCommas(totalConfirmed);
-  deathsEl.innerHTML = numberWithCommas(totalDeaths);
-  recoveriesEl.innerHTML = numberWithCommas(totalRecoveries);
+  world.polygonsData(countriesWithAlumni);
+  document.querySelector('.title-desc').innerHTML =
+    'Hover on a country or territory to see alumni information.';
 
-  updatedEl.innerHTML = `(as of ${formatDate(dates[slider.value])})`;
-}
+  // Show total counts
+  document.querySelector('#alumni').innerHTML = numberWithCommas(data_count);
 
-function updatePolygonsData() {
-  for (let x = 0; x < featureCollection.length; x++) {
-    const country = featureCollection[x].properties.NAME;
-    if (countries[country]) {
-      featureCollection[x].covidData = {
-        confirmed: countries[country][dates[slider.value]].confirmed,
-        deaths: countries[country][dates[slider.value]].deaths,
-        recoveries: countries[country][dates[slider.value]].recoveries,
-      };
-    } else {
-      featureCollection[x].covidData = {
-        confirmed: 0,
-        deaths: 0,
-        recoveries: 0,
-      };
-    }
-  }
+  document.querySelector('#chapters').innerHTML = numberWithCommas(chapters_count);
 
-  const maxVal = Math.max(...featureCollection.map(getVal));
-  colorScale.domain([0, maxVal]);
-  world.polygonsData(featureCollection);
-}
-
-async function updatePointOfView() {
   // Get coordinates
   try {
     const { latitude, longitude } = await getCoordinates();
@@ -162,47 +115,6 @@ async function updatePointOfView() {
   } catch (e) {
     console.log('Unable to set point of view.');
   }
-}
-
-let interval;
-
-playButton.addEventListener('click', () => {
-  if (playButton.innerText === 'Play') {
-    playButton.innerText = 'Pause';
-  } else {
-    playButton.innerText = 'Play';
-    clearInterval(interval);
-    return;
-  }
-
-  // Check if slider position is max
-  if (+slider.value === dates.length - 1) {
-    slider.value = 0;
-  }
-
-  sliderDate.innerHTML = dates[slider.value];
-
-  interval = setInterval(() => {
-    slider.value++;
-    sliderDate.innerHTML = dates[slider.value];
-    updateCounters();
-    updatePolygonsData();
-    if (+slider.value === dates.length - 1) {
-      playButton.innerHTML = 'Play';
-      clearInterval(interval);
-    }
-  }, 200);
-});
-
-if ('oninput' in slider) {
-  slider.addEventListener(
-    'input',
-    function () {
-      updateCounters();
-      updatePolygonsData();
-    },
-    false
-  );
 }
 
 // Responsive globe
