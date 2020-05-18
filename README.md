@@ -56,7 +56,7 @@ Licensed under the [GNU General Public License](LICENSE.md).
 
 ## 💕 Acknowledgments
 
-- Huge Shout-out to @sorxrob for open-sourcing the project Check out the original repo - https://github.com/sorxrob/covid3d
+- Huge Shout-out to @sorxrob for open-sourcing the project. Check out the original repo - https://github.com/sorxrob/covid3d
 - Inspired by https://covidvisualizer.com
 - [hugosoftdev](https://github.com/hugosoftdev) for adding [parameter selection](https://github.com/sorxrob/covid-3d/pull/8)
 - Flags from https://corona.lmao.ninja
