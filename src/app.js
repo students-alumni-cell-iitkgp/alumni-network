@@ -2,9 +2,7 @@ import Globe from 'globe.gl';
 import { request, getCoordinates, numberWithCommas, formatDate } from './utils';
 import {
   GLOBE_IMAGE_URL,
-  BACKGROUND_IMAGE_URL,
   GEOJSON_URL,
-  CASES_API,
 } from './constants';
 import * as d3 from 'd3';
 
@@ -62,7 +60,8 @@ async function getCases() {
   let data_count = 0;
   let chapters_count = 0;
   const countries = await request(GEOJSON_URL);
-  const data = await request(CASES_API);
+  const res = await fetch('/alumni-network/api');
+  const data = await res.json();
 
   const countriesWithAlumni = [];
 

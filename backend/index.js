@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(cache('1 hour'));
 
-app.use(express.static(path.join(path.dirname(__dirname), "dist")));
+app.use(express.static(path.join(path.dirname(__dirname), "dist/")));
 
 app.get('/api', async (req, res) => {
 	let countries = await data.findAll({
@@ -42,7 +42,7 @@ app.get('/api', async (req, res) => {
 	return res.json(country_data);
 });
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
 	res.sendFile(path.join(path.dirname(__dirname), "dist/index.html"));
 });
 
