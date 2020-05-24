@@ -1,16 +1,19 @@
 const express = require('express');
 const apicache = require('apicache');
+const path = require('path');
 const cors = require('cors');
 const cache = apicache.middleware;
 const {sequelize, data, location} = require('./sequelize');
-const { QueryTypes } = require('sequelize');
 const PORT = 3030;
 
 const app = express();
+
 app.use(cors());
 app.use(cache('1 hour'));
 
-app.get('/', async (req, res) => {
+app.use(express.static(path.join(path.dirname(__dirname), "dist")));
+
+app.get('/api', async (req, res) => {
 	let countries = await data.findAll({
 		group: ["biz_country"],
 		attributes: ['biz_country', [sequelize.fn('COUNT', 'id'), 'count']], 
@@ -37,6 +40,10 @@ app.get('/', async (req, res) => {
 		}
 	}
 	return res.json(country_data);
+});
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(path.dirname(__dirname), "dist/index.html"));
 });
 
 app.listen(PORT, () => {

@@ -10,7 +10,6 @@ import * as d3 from 'd3';
 
 // Globe container
 const globeContainer = document.getElementById('globeViz');
-
 const colorScale = d3.scaleSequentialPow(d3.interpolateYlOrRd).exponent(1 / 4);
 const getVal = (feat) => feat.alumniData.count;
 
@@ -19,44 +18,44 @@ init();
 
 function init() {
   world = Globe()(globeContainer)
-    .globeImageUrl(GLOBE_IMAGE_URL)
-    .backgroundImageUrl(BACKGROUND_IMAGE_URL)
-    .showGraticules(false)
-    .polygonAltitude(0.06)
-    .polygonCapColor((feat) => colorScale(getVal(feat)))
-    .polygonSideColor(() => 'rgba(0, 100, 0, 0.05)')
-    .polygonStrokeColor(() => '#111')
-    .polygonLabel(
-      ({ properties: d, alumniData: c }) => `
-            <div class="card">
-              <img class="card-img" src="${"https://disease.sh/assets/img/flags/" + d["ISO_A2"].toLowerCase() + ".png"}" alt="flag" />
-              <div class="container">
-                 <span class="card-title"><b>${d.ADMIN}</b></span> <br />
-                 <span class="card-total-cases">${numberWithCommas(
-                   c.count
-                 )} Alumni</span>
-                 <div class="card-spacer"></div>
-                 <hr />
-                 <div class="card-spacer"></div>
-                 <span>${numberWithCommas(c.chapters)} chapters</span> <br />
-                 <div class="card-spacer"></div>
-                 <hr />
-                 <div class="card-spacer"></div>
-                 <div class="bottom-info">
-                 </div>
-              </div>
-            </div>
-          `
-    )
-    .onPolygonHover((hoverD) =>
+  .globeImageUrl(GLOBE_IMAGE_URL)
+  .backgroundImageUrl(BACKGROUND_IMAGE_URL)
+  .showGraticules(false)
+  .polygonAltitude(0.06)
+  .polygonCapColor((feat) => colorScale(getVal(feat)))
+  .polygonSideColor(() => 'rgba(0, 100, 0, 0.05)')
+  .polygonStrokeColor(() => '#111')
+  .polygonLabel(
+    ({ properties: d, alumniData: c }) => `
+    <div class="card">
+    <img class="card-img" src="${"https://disease.sh/assets/img/flags/" + d["ISO_A2"].toLowerCase() + ".png"}" alt="flag" />
+    <div class="container">
+    <span class="card-title"><b>${d.ADMIN}</b></span> <br />
+    <span class="card-total-cases">${numberWithCommas(
+      c.count
+      )} Alumni</span>
+      <div class="card-spacer"></div>
+      <hr />
+      <div class="card-spacer"></div>
+      <span>${numberWithCommas(c.chapters)} chapters</span> <br />
+      <div class="card-spacer"></div>
+      <hr />
+      <div class="card-spacer"></div>
+      <div class="bottom-info">
+      </div>
+      </div>
+      </div>
+      `
+      )
+      .onPolygonHover((hoverD) =>
       world
-        .polygonAltitude((d) => (d === hoverD ? 0.12 : 0.06))
-        .polygonCapColor((d) =>
-          d === hoverD ? 'steelblue' : colorScale(getVal(d))
-        )
-    )
-    .polygonsTransitionDuration(300);
-
+      .polygonAltitude((d) => (d === hoverD ? 0.12 : 0.06))
+      .polygonCapColor((d) =>
+      d === hoverD ? 'steelblue' : colorScale(getVal(d))
+      )
+      )
+      .polygonsTransitionDuration(300);
+      
   getCases();
 }
 
