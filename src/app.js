@@ -19,9 +19,8 @@ init();
 function init() {
   world = Globe()(globeContainer)
   .globeImageUrl(GLOBE_IMAGE_URL)
-  .backgroundImageUrl(BACKGROUND_IMAGE_URL)
   .showGraticules(false)
-  .polygonAltitude(0.06)
+  .polygonAltitude(0.05)
   .polygonCapColor((feat) => colorScale(getVal(feat)))
   .polygonSideColor(() => 'rgba(0, 100, 0, 0.05)')
   .polygonStrokeColor(() => '#111')
