@@ -6,6 +6,8 @@ import {
 } from './constants';
 import * as d3 from 'd3';
 
+const populate_items = require('./data_items.json');
+
 // Globe container
 const globeContainer = document.getElementById('globeViz');
 const colorScale = d3.scaleSequentialPow(d3.interpolateYlOrRd).exponent(1 / 4);
@@ -13,6 +15,35 @@ const getVal = (feat) => feat.alumniData.count;
 
 let world;
 init();
+
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("myBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+	modal.style.display = "block";
+	document.getElementsByClassName("header-row")[0].style.display = "none";
+	document.getElementsByClassName("total-results")[0].innerText = "";
+	let search_entries = document.getElementsByClassName("search-entries")[0];
+	while (search_entries.lastElementChild) {
+		search_entries.removeChild(search_entries.lastElementChild);
+	}
+	document.getElementsByClassName("bottom-info-container")[0].style.display = "none";
+  search_entries.style.height = "0vh";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+		document.getElementsByClassName("bottom-info-container")[0].style.display = "block";
+  }
+}
 
 function init() {
   world = Globe()(globeContainer)
@@ -54,14 +85,14 @@ function init() {
       .polygonsTransitionDuration(300);
       
   getCases();
+  populate_dropdowns();
 }
 
 async function getCases() {
   let data_count = 0;
   let chapters_count = 0;
   const countries = await request(GEOJSON_URL);
-  const res = await fetch('/alumni-network/api');
-  const data = await res.json();
+  const data = populate_items.alumni_data;
 
   const countriesWithAlumni = [];
 
@@ -113,6 +144,93 @@ async function getCases() {
     console.log('Unable to set point of view.');
   }
 }
+
+function populate_dropdowns(){
+	let dept = document.getElementById("dept");
+	populate_items.dept.forEach((item) => {
+		let option = document.createElement("option");
+		option.text = item;
+		option.value = item;
+		dept.appendChild(option);
+	})
+
+	let hall = document.getElementById("hall");
+	populate_items.halls.forEach((item) => {
+		let option = document.createElement("option");
+		option.text = item;
+		option.value = item;
+		hall.appendChild(option);
+	})
+
+	let countries = document.getElementById("country");
+	populate_items.countries.forEach((item) => {
+		let option = document.createElement("option");
+		option.text = item;
+		option.value = item;
+		countries.appendChild(option);
+	})
+}
+
+
+document.getElementById ("submit").addEventListener ("click", async function search_filters(event){
+  let yog = document.getElementById("batch").value;
+  if((yog < "1954" || yog > "2018") && yog != ""){
+    alert("Data available only for 1954 - 2018");
+    return ;
+  }
+  event.preventDefault();
+	document.getElementsByClassName("header-row")[0].style.display = "block";
+	let search_entries = document.getElementsByClassName("search-entries")[0];
+	while (search_entries.lastElementChild) {
+		search_entries.removeChild(search_entries.lastElementChild);
+	}
+	document.getElementsByClassName("total-results")[0].innerText = "";
+	let search_object = {
+		"fname" : document.getElementById("fname").value,
+		"lname" : document.getElementById("lname").value,
+		"year" : document.getElementById("batch").value,
+		"dept" : document.getElementById("dept").value,
+		"hall" : document.getElementById("hall").value,
+		"biz_country" : document.getElementById("country").value,
+	};
+
+	let response = await fetch("/search", {
+		method: 'POST',
+		mode: 'cors',
+		body: JSON.stringify(search_object),
+		headers: {
+		   "Content-type": "application/json; charset=UTF-8"
+		}
+	});
+
+	let search_data = await response.json();
+	console.log(search_data);
+	
+	search_data.search_entries.forEach((item) => {
+		let row = document.createElement("div");
+		row.className = "entry-row";
+		Object.keys(item).forEach((cols) => {
+			let col = document.createElement("div");
+			col.className = "table-column";
+			if(cols == "name") col.style.width = "20%";
+			else if(cols == "location") col.style.width = "35%";
+			else if(cols == "degree") col.style.width = "80px";
+			else col.style.width = "40px";
+			col.innerText = item[cols];
+			row.appendChild(col);
+		})
+		search_entries.appendChild(row);
+	})
+	if(search_data.count > 8){
+		document.getElementsByClassName("total-results")[0].innerText = "Displaying 8 results out of " + search_data.count;
+	}
+	else{
+		document.getElementsByClassName("total-results")[0].innerText = "Displaying " + search_data.count + " results out of " + search_data.count;
+	}
+	document.getElementsByClassName("header-row")[0].style.display = "block";
+	
+	search_entries.style.height = "30vh";
+});
 
 // Responsive globe
 window.addEventListener('resize', (event) => {

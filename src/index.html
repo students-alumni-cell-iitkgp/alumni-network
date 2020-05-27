@@ -15,13 +15,82 @@
   <body>
     <div id="globeViz"></div>
     <div class="top-info-container">
-      <img src = "https://www.covidvisualizer.com/assets/search.svg" style = "height : 40px; width : 40 px; float : right; padding-right: 3vw; padding-top : 2vh; opacity : 0.7">
+      <img id = "myBtn" src = "https://www.covidvisualizer.com/assets/search.svg" style = "height : 40px; width : 40 px; float : right; padding-right: 3vw; padding-top : 2vh; opacity : 0.7">
       <div class="title">
         IIT Kharagpur Alumni Database
       </div>
       <div class="title-desc">
         Loading globe...
       </div>
+    </div>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="row">
+          <div class="title" style="text-align: center;">
+            Search
+          </div> 
+        </div>
+         
+        <div id = "search">
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">First Name</label><br>
+              <input type="text" id="fname" value = "" placeholder="First Name..">
+            </div>
+            
+            <div class="col-25">
+              <label for="lname">Last Name</label><br>
+              <input type="text" id="lname" value = "" placeholder="Last Name..">
+            </div>
+          
+            <div class="col-25">
+              <label for="batch">Batch</label><br>
+              <input type="text" id="batch" value = "" placeholder="Select Batch">
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-25">
+              <label for="dept">Department</label><br>
+              <select id="dept">
+              </select>
+            </div>
+
+            <div class="col-25">
+              <label for="hall">Hall</label><br>
+              <select id="hall">
+              </select>
+            </div>
+          
+            <div class="col-25">
+              <label for="country">Country</label><br>
+              <select id="country">
+              </select>
+            </div>
+          </div><br>
+            <center><button id ="submit" type="button" style="padding-left: 20px; padding-right: 20px;"> Submit </button></center>
+        </div><br> 
+        <div id = "search-results">
+          <div class = "header-row" style = "display: none;">
+            <div class="table-column" style = "width : 20%">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">HOR</div>
+            <div class="table-column" style = "width : 40px">Dept</div>
+            <div class="table-column" style = "width : 80px">Degree</div>
+            <div class="table-column" style = "width : 35%">Business Location</div>
+          </div>
+          <div class = "search-entries">
+          </div>
+          <div class = "total-results">
+          </div>
+        </div>
+
+      </div>
+    
     </div>
 
     <div class="bottom-info-container">
@@ -31,8 +100,8 @@
       <div style="color: #e6f1ff; padding: 0 5px;">
         ALUMNI: <span id="alumni">0</span> • CHAPTERS:
         <span id="chapters">0</span>
-      </div>
-      
+      </div><br>
+      <a href = "https://github.com/students-alumni-cell-iitkgp/alumni-network"></a><button id ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> See on Github </button></a>
     </div>
     <script src= "./app.js"></script>
   </body>

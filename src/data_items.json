@@ -1,0 +1,516 @@
+{
+    "halls" : [
+        "Select Hall of Residence",
+        "AZ",
+        "BCR",
+        "BRH",
+        "GKH",
+        "HJB",
+        "JCB",
+        "NH",
+        "LBS",
+        "LLR",
+        "MMM",
+        "MS",
+        "MT",
+        "SNVH",
+        "PH",
+        "RK",
+        "RLB",
+        "RP",
+        "SAM",
+        "SN/IG",
+        "VS",
+        "VSRC",
+        "ZKH",
+        "RF"
+    ],
+    "dept" : [
+        "Select Department",
+        "AE",
+        "AG",
+        "AR",
+        "AT",
+        "BM",
+        "BS",
+        "BT",
+        "CE",
+        "CH",
+        "CL",
+        "CR",
+        "CS",
+        "CY",
+        "EC",
+        "EE",
+        "EN",
+        "ES",
+        "ET",
+        "GG",
+        "GS",
+        "HS",
+        "ID",
+        "IE",
+        "IM",
+        "IP",
+        "IT",
+        "MA",
+        "ME",
+        "MF",
+        "MI",
+        "MM",
+        "MN",
+        "MS",
+        "MT",
+        "NA",
+        "NT",
+        "PH",
+        "PT",
+        "RC",
+        "RD",
+        "RE",
+        "RJ",
+        "RT",
+        "TS",
+        "WM"
+    ],
+    "countries" : [
+        "Select Country",
+        "Afghanistan",
+        "Angola",
+        "Argentina",
+        "Australia",
+        "Austria",
+        "Azerbaijan",
+        "Bahrain",
+        "Bangladesh",
+        "Barbados",
+        "Belgium",
+        "Bhutan",
+        "BOTSWANA",
+        "Brazil",
+        "Brunei",
+        "Canada",
+        "Chile",
+        "China",
+        "Czechia",
+        "Denmark",
+        "Egypt",
+        "Ethiopia",
+        "Finland",
+        "France",
+        "Germany",
+        "Ghana",
+        "Greece",
+        "Hungary",
+        "India",
+        "Indonesia",
+        "Iraq",
+        "Ireland",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Kazakhstan",
+        "Kenya",
+        "Kuwait",
+        "Laos",
+        "Libya",
+        "Liechtenstein",
+        "Luxembourg",
+        "Malaysia",
+        "Maldives",
+        "Mauritius",
+        "Mexico",
+        "Mozambique",
+        "Myanmar",
+        "Nepal",
+        "Netherlands",
+        "New Zealand",
+        "Nigeria",
+        "Norway",
+        "Oman",
+        "Pakistan",
+        "Panama",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Puerto Rico",
+        "Qatar",
+        "Republic of Serbia",
+        "Russia",
+        "Rwanda",
+        "Saudi Arabia",
+        "Singapore",
+        "Slovakia",
+        "South Africa",
+        "South Korea",
+        "South Sudan",
+        "Spain",
+        "Sri Lanka",
+        "Sweden",
+        "Switzerland",
+        "Taiwan",
+        "Tanzania",
+        "Thailand",
+        "Trinidad & Tobago",
+        "Uganda",
+        "United Arab Emirates",
+        "United Kingdom",
+        "United States of America",
+        "Venezuela",
+        "Vietnam",
+        "Zambia",
+        "Zimbabwe"
+    ],
+    "alumni_data" : {
+        "Afghanistan": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Angola": {
+            "count": 2,
+            "chapters": 0
+        },
+        "Argentina": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Australia": {
+            "count": 271,
+            "chapters": 0
+        },
+        "Austria": {
+            "count": 15,
+            "chapters": 0
+        },
+        "Azerbaijan": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Bahrain": {
+            "count": 22,
+            "chapters": 0
+        },
+        "Bangladesh": {
+            "count": 20,
+            "chapters": 0
+        },
+        "Barbados": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Belgium": {
+            "count": 21,
+            "chapters": 0
+        },
+        "Bhutan": {
+            "count": 2,
+            "chapters": 0
+        },
+        "BOTSWANA": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Brazil": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Brunei": {
+            "count": 2,
+            "chapters": 0
+        },
+        "Canada": {
+            "count": 380,
+            "chapters": 0
+        },
+        "Chile": {
+            "count": 1,
+            "chapters": 0
+        },
+        "China": {
+            "count": 86,
+            "chapters": 0
+        },
+        "Czechia": {
+            "count": 6,
+            "chapters": 0
+        },
+        "Denmark": {
+            "count": 23,
+            "chapters": 0
+        },
+        "Egypt": {
+            "count": 7,
+            "chapters": 0
+        },
+        "Ethiopia": {
+            "count": 8,
+            "chapters": 0
+        },
+        "Finland": {
+            "count": 16,
+            "chapters": 0
+        },
+        "France": {
+            "count": 47,
+            "chapters": 0
+        },
+        "Germany": {
+            "count": 173,
+            "chapters": 0
+        },
+        "Ghana": {
+            "count": 2,
+            "chapters": 0
+        },
+        "Greece": {
+            "count": 2,
+            "chapters": 0
+        },
+        "Hungary": {
+            "count": 1,
+            "chapters": 0
+        },
+        "India": {
+            "count": 21225,
+            "chapters": 0
+        },
+        "Indonesia": {
+            "count": 17,
+            "chapters": 0
+        },
+        "Iraq": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Ireland": {
+            "count": 26,
+            "chapters": 0
+        },
+        "Israel": {
+            "count": 16,
+            "chapters": 0
+        },
+        "Italy": {
+            "count": 14,
+            "chapters": 0
+        },
+        "Jamaica": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Japan": {
+            "count": 72,
+            "chapters": 0
+        },
+        "Kazakhstan": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Kenya": {
+            "count": 5,
+            "chapters": 0
+        },
+        "Kuwait": {
+            "count": 35,
+            "chapters": 0
+        },
+        "Laos": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Libya": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Liechtenstein": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Luxembourg": {
+            "count": 10,
+            "chapters": 0
+        },
+        "Malaysia": {
+            "count": 66,
+            "chapters": 0
+        },
+        "Maldives": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Mauritius": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Mexico": {
+            "count": 5,
+            "chapters": 0
+        },
+        "Mozambique": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Myanmar": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Nepal": {
+            "count": 11,
+            "chapters": 0
+        },
+        "Netherlands": {
+            "count": 87,
+            "chapters": 0
+        },
+        "New Zealand": {
+            "count": 19,
+            "chapters": 0
+        },
+        "Nigeria": {
+            "count": 27,
+            "chapters": 0
+        },
+        "Norway": {
+            "count": 27,
+            "chapters": 0
+        },
+        "Oman": {
+            "count": 35,
+            "chapters": 0
+        },
+        "Pakistan": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Panama": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Peru": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Philippines": {
+            "count": 7,
+            "chapters": 0
+        },
+        "Poland": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Portugal": {
+            "count": 4,
+            "chapters": 0
+        },
+        "Puerto Rico": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Qatar": {
+            "count": 40,
+            "chapters": 0
+        },
+        "Republic of Serbia": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Russia": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Rwanda": {
+            "count": 4,
+            "chapters": 0
+        },
+        "Saudi Arabia": {
+            "count": 57,
+            "chapters": 0
+        },
+        "Singapore": {
+            "count": 465,
+            "chapters": 0
+        },
+        "Slovakia": {
+            "count": 1,
+            "chapters": 0
+        },
+        "South Africa": {
+            "count": 13,
+            "chapters": 0
+        },
+        "South Korea": {
+            "count": 53,
+            "chapters": 0
+        },
+        "South Sudan": {
+            "count": 2,
+            "chapters": 0
+        },
+        "Spain": {
+            "count": 12,
+            "chapters": 0
+        },
+        "Sri Lanka": {
+            "count": 3,
+            "chapters": 0
+        },
+        "Sweden": {
+            "count": 42,
+            "chapters": 0
+        },
+        "Switzerland": {
+            "count": 73,
+            "chapters": 0
+        },
+        "Taiwan": {
+            "count": 23,
+            "chapters": 0
+        },
+        "Tanzania": {
+            "count": 6,
+            "chapters": 0
+        },
+        "Thailand": {
+            "count": 19,
+            "chapters": 0
+        },
+        "Trinidad & Tobago": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Uganda": {
+            "count": 1,
+            "chapters": 0
+        },
+        "United Arab Emirates": {
+            "count": 271,
+            "chapters": 0
+        },
+        "United Kingdom": {
+            "count": 522,
+            "chapters": 0
+        },
+        "United States of America": {
+            "count": 6418,
+            "chapters": 0
+        },
+        "Venezuela": {
+            "count": 1,
+            "chapters": 0
+        },
+        "Vietnam": {
+            "count": 4,
+            "chapters": 0
+        },
+        "Zambia": {
+            "count": 5,
+            "chapters": 0
+        },
+        "Zimbabwe": {
+            "count": 1,
+            "chapters": 0
+        }
+    }
+}
