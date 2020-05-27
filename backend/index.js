@@ -69,8 +69,8 @@ app.post('/search', async (req, res) => {
 		console.log(err);
 	});
 	const value_count = values.length;
-	if(value_count > 8){
-		values = values.slice(0, 8)
+	if(value_count > 200){
+		values = values.slice(0, 200)
 	}
 
 	let search_entries = [];
@@ -82,8 +82,10 @@ app.post('/search', async (req, res) => {
 		item["hall"] = temp.hall;
 		item["dept"] = temp.dept;
 		item["degree"] = temp.degree;
+		item["profession"] = temp.position + ", " + temp.company;
+		if(item["profession"] == ", ") item["profession"] = "NA";
 		if(temp.biz_country == "NA"){
-			item["location"] = "Not Available";
+			item["location"] = "NA";
 		}
 		else{
 			item["location"] = temp.biz_city + ", " + temp.biz_province + ", " + temp.biz_country + "-" + temp.biz_zipcode;

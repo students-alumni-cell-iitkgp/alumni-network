@@ -36,6 +36,7 @@ btn.onclick = function() {
 
 span.onclick = function() {
   modal.style.display = "none";
+  document.getElementsByClassName("bottom-info-container")[0].style.display = "block";
 }
 
 window.onclick = function(event) {
@@ -179,6 +180,7 @@ document.getElementById ("submit").addEventListener ("click", async function sea
     return ;
   }
   event.preventDefault();
+  document.getElementById("submit").innerText = "Loading results..";
 	document.getElementsByClassName("header-row")[0].style.display = "block";
 	let search_entries = document.getElementsByClassName("search-entries")[0];
 	while (search_entries.lastElementChild) {
@@ -212,22 +214,25 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 		Object.keys(item).forEach((cols) => {
 			let col = document.createElement("div");
 			col.className = "table-column";
-			if(cols == "name") col.style.width = "20%";
-			else if(cols == "location") col.style.width = "35%";
-			else if(cols == "degree") col.style.width = "80px";
+			if(cols == "name") col.style.width = "200px";
+			else if(cols == "location") col.style.width = "250px";
+      else if(cols == "degree") col.style.width = "80px";
+      else if(cols == "profession") col.style.width = "200px";
       else col.style.width = "40px";
 			col.innerText = item[cols];
 			row.appendChild(col);
 		})
 		search_entries.appendChild(row);
 	})
-	if(search_data.count > 8){
-		document.getElementsByClassName("total-results")[0].innerText = "Displaying 8 results out of " + search_data.count;
+	if(search_data.count > 200){
+		document.getElementsByClassName("total-results")[0].innerText = "Displaying 200 results out of " + search_data.count;
 	}
 	else{
 		document.getElementsByClassName("total-results")[0].innerText = "Displaying " + search_data.count + " results out of " + search_data.count;
 	}
-	document.getElementsByClassName("header-row")[0].style.display = "block";
+  document.getElementsByClassName("header-row")[0].style.display = "block";
+  
+  document.getElementById("submit").innerText = "Submit";
 	
 	search_entries.style.height = "30vh";
 });
