@@ -82,7 +82,12 @@ app.post('/search', async (req, res) => {
 		item["hall"] = temp.hall;
 		item["dept"] = temp.dept;
 		item["degree"] = temp.degree;
-		item["location"] = temp.biz_city + ", " + temp.biz_province + ", " + temp.biz_country + "-" + temp.biz_zipcode;
+		if(temp.biz_country == "NA"){
+			item["location"] = "Not Available";
+		}
+		else{
+			item["location"] = temp.biz_city + ", " + temp.biz_province + ", " + temp.biz_country + "-" + temp.biz_zipcode;
+		}
 		search_entries.push(item);
 	})
 	search_results = {

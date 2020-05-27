@@ -98,8 +98,8 @@ async function getCases() {
 
   const country_names = Object.keys(data);
   country_names.forEach((item) => {
+      data_count += data[item].count;
       if(item != "NA"){
-        data_count += data[item].count;
         chapters_count += data[item].chapters;
       }
       const countryIdxByName = countries.features.findIndex(
@@ -125,7 +125,7 @@ async function getCases() {
     'Hover on a country or territory to see alumni information.';
 
   // Show total counts
-  document.querySelector('#alumni').innerHTML = numberWithCommas(data_count);
+  document.querySelector('#alumni').innerHTML = numberWithCommas(64293);
 
   document.querySelector('#chapters').innerHTML = numberWithCommas(chapters_count);
 
@@ -215,7 +215,7 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 			if(cols == "name") col.style.width = "20%";
 			else if(cols == "location") col.style.width = "35%";
 			else if(cols == "degree") col.style.width = "80px";
-			else col.style.width = "40px";
+      else col.style.width = "40px";
 			col.innerText = item[cols];
 			row.appendChild(col);
 		})
