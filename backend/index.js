@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(path.dirname(__dirname), "dist")));
+app.use(express.static(path.join(path.dirname(__dirname), "public")));
 
 app.get('/api', async (req, res) => {
 	let countries = await data.findAll({
