@@ -99,7 +99,7 @@ app.post('/search', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(path.dirname(__dirname), "dist/index.html"));
+	res.sendFile(path.join(path.dirname(__dirname), "public/index.html"));
 });
 
 app.listen(PORT, () => {
