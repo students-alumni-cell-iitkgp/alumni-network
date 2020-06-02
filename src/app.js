@@ -3,6 +3,7 @@ import { request, getCoordinates, numberWithCommas, formatDate } from './utils';
 import {
   GLOBE_IMAGE_URL,
   GEOJSON_URL,
+  FETCH_API
 } from './constants';
 import * as d3 from 'd3';
 
@@ -226,7 +227,7 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 		"biz_country" : document.getElementById("country").value,
 	};
 
-	let response = await fetch("/search", {
+	let response = await fetch(FETCH_API, {
 		method: 'POST',
 		mode: 'cors',
 		body: JSON.stringify(search_object),
