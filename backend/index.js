@@ -80,6 +80,7 @@ app.post('/search', async (req, res) => {
 		item["name"] = temp.fname + " " + temp.lname;
 		item["yog"] = temp.year;
 		item["hall"] = temp.hall;
+		if(item["hall"] == "") item["hall"] = "-";
 		item["dept"] = temp.dept;
 		item["degree"] = temp.degree;
 		item["profession"] = temp.position + ", " + temp.company;

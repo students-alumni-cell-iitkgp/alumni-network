@@ -16,11 +16,17 @@ const getVal = (feat) => feat.alumniData.count;
 let world;
 init();
 
-var modal = document.getElementById("myModal");
+let modal = document.getElementById("myModal");
 
-var btn = document.getElementById("myBtn");
+let modal1 = document.getElementById("chapterModal");
 
-var span = document.getElementsByClassName("close")[0];
+let btn = document.getElementById("myBtn");
+
+let btn1 = document.getElementById("chapters_modal");
+
+let span = document.getElementsByClassName("close")[0];
+
+let span1 = document.getElementsByClassName("close")[1];
 
 btn.onclick = function() {
 	modal.style.display = "block";
@@ -34,8 +40,18 @@ btn.onclick = function() {
   search_entries.style.height = "0vh";
 }
 
+btn1.onclick = function() {
+	modal1.style.display = "block";
+	document.getElementsByClassName("bottom-info-container")[0].style.display = "none";
+}
+
 span.onclick = function() {
   modal.style.display = "none";
+  document.getElementsByClassName("bottom-info-container")[0].style.display = "block";
+}
+
+span1.onclick = function() {
+  modal1.style.display = "none";
   document.getElementsByClassName("bottom-info-container")[0].style.display = "block";
 }
 
@@ -44,7 +60,12 @@ window.onclick = function(event) {
 		modal.style.display = "none";
 		document.getElementsByClassName("bottom-info-container")[0].style.display = "block";
   }
+  if (event.target == modal1) {
+		modal1.style.display = "none";
+		document.getElementsByClassName("bottom-info-container")[0].style.display = "block";
+  }
 }
+
 
 function init() {
   world = Globe()(globeContainer)
@@ -84,6 +105,14 @@ function init() {
       )
       )
       .polygonsTransitionDuration(300);
+  
+  
+  world.width([window.innerWidth]);
+  world.height([window.innerHeight]);
+  window.addEventListener('resize', () => {
+    world.width([window.innerWidth]);
+    world.height([window.innerHeight]);
+  });
       
   getCases();
   populate_dropdowns();
@@ -114,7 +143,7 @@ async function getCases() {
         });
       }
       else{
-        console.log(item);
+        // console.log(item);
       }
 
     const maxVal = Math.max(...countriesWithAlumni.map(getVal));
@@ -122,8 +151,8 @@ async function getCases() {
   });
 
   world.polygonsData(countriesWithAlumni);
-  document.querySelector('.title-desc').innerHTML =
-    'Hover on a country or territory to see alumni information.';
+  // document.querySelector('.title-desc').innerText =
+  //   'Hover on a country or territory to see alumni information.';
 
   // Show total counts
   document.querySelector('#alumni').innerHTML = numberWithCommas(64293);
@@ -206,7 +235,7 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 	});
 
 	let search_data = await response.json();
-	console.log(search_data);
+	// console.log(search_data);
 	
 	search_data.search_entries.forEach((item) => {
 		let row = document.createElement("div");
@@ -237,8 +266,22 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 	search_entries.style.height = "30vh";
 });
 
-// Responsive globe
-window.addEventListener('resize', (event) => {
-  world.width([event.target.innerWidth]);
-  world.height([event.target.innerHeight]);
+document.getElementById("India").addEventListener("click", function () {
+  document.querySelector('#india').scrollIntoView({behavior: 'smooth'});
+});
+
+document.getElementById("USA").addEventListener("click", function () {
+  document.querySelector('#usa').scrollIntoView({behavior: 'smooth'});
+});
+
+document.getElementById("Canada").addEventListener("click", function () {
+  document.querySelector('#canada').scrollIntoView({behavior: 'smooth'});
+});
+
+document.getElementById("UK").addEventListener("click", function () {
+  document.querySelector('#uk').scrollIntoView({behavior: 'smooth'});
+});
+
+document.getElementById("Singapore").addEventListener("click", function () {
+  document.querySelector('#singapore').scrollIntoView({behavior: 'smooth'});
 });

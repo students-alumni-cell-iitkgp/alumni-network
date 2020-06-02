@@ -29,8 +29,15 @@ body {
 }
 
 .title {
-  font-size: 35px;
+  font-weight: bold;
+  font-size: 25px;
   color: #e6f1ff;
+}
+
+.scrollable {
+  max-width : 100vw;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .title-desc {
@@ -178,6 +185,7 @@ body {
 .modal-content {
   background-color: rgba(0,0,0,0.9);;
   margin: auto;
+  height: 80vh;
   overflow: auto;
   padding: 20px;
   border: 5px solid #fff;
@@ -210,7 +218,7 @@ input[type=text], input[type=number], select, textarea {
   color : white;
 }
 
-#submit {
+.submit {
 	padding: 12px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
@@ -218,11 +226,12 @@ input[type=text], input[type=number], select, textarea {
 	background-color: rgba(0,0,0,0.4);
 	color : white;
 	font-family: 'Space Mono', monospace;
-	font-size : 15px;
+	font-size : 16px;
 }
 
-#info {
-	padding: 8px;
+.info {
+  padding: 8px;
+  cursor: pointer;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	resize: vertical;
@@ -242,7 +251,7 @@ label {
 .col-25 {
   float: left;
   text-align: center;
-  width: 25%;
+  width: 26%;
   margin-top: 6px;
   margin-left: 5%;
 }
@@ -267,18 +276,21 @@ label {
 }
 
 .search-results {
-	overflow-y: scroll;
-	overflow-x: scroll;
+	overflow-y: auto;
+	overflow-x: auto;
 }
 
 .header-row {
 	margin-left: 3%;
-	margin-right: 3%;
+  margin-right: 3%;
 	color : white;
 	font-weight: bold;
 	border-bottom: 5px solid white;
 	text-align: center;
 	font-size: 20px;
+  max-width : 100vw;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .entry-row {
@@ -290,6 +302,9 @@ label {
 	text-align: center;
 	text-align: center;
 	font-size: 15px;
+  max-width : 100vw;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .header-row:after {

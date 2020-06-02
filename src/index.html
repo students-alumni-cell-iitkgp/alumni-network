@@ -9,18 +9,20 @@
       rel="stylesheet"
     />
     <meta property="og:image" content="https://i.imgur.com/1AFEXhs.png" />
-    <title>IIT KGP Alumni Network</title>
+    <center><title>IIT KGP Alumni Network</title></center>
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
     <div id="globeViz"></div>
     <div class="top-info-container">
-      <img id = "myBtn" src = "images/search.svg" style = "height : 40px; width : 40 px; float : right; padding-right: 3vw; padding-top : 2vh; opacity : 0.7">
-      <div class="title">
-        IIT Kharagpur Alumni Database
-      </div>
-      <div class="title-desc">
-        Loading globe...
+        <img id = "myBtn" src = "images/search.svg" style = "cursor: pointer; height : 40px; width : 40 px; float : right; padding-right: 3vw; padding-top : 2vh; opacity : 0.7">
+
+        <div class="title">
+          IIT Kharagpur Alumni Database
+        </div>
+        <div class="title-desc">
+          Loading globe...
+        </div>
       </div>
     </div>
 
@@ -72,7 +74,7 @@
               </select>
             </div>
           </div><br>
-            <center><button id ="submit" type="button" style="padding-left: 20px; padding-right: 20px;"> Submit </button></center>
+            <center><button id ="submit" class = "submit" type="button" style="padding-left: 20px; padding-right: 20px;"> Submit </button></center>
         </div><br> 
         <div id = "search-results">
           <div class = "header-row" style = "display: none;">
@@ -94,19 +96,613 @@
     
     </div>
 
+    <div id="chapterModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" style = "overflow: auto; text-align: center; padding-left: 5%; padding-right: 5%; margin-left: 5%; margin-right: 5%; overflow-y: scroll;">
+        <span class="close">&times;</span>
+        <div class="title">
+          IIT Kharagpur's Alumni Chapters 
+        </div> <br>
+        <button id ="India" class= "submit" type="button"> India </button>
+        <button id ="USA" class= "submit" type="button"> USA </button>
+        <button id ="Canada" class= "submit" type="button"> Canada </button>
+        <button id ="UK" class= "submit" type="button"> UK </button>
+        <button id ="Singapore" class= "submit" type="button"> Singapore </button>
+        <div id = "india" class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          IIT Foundation India
+        </div>
+          
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Varadu Seshamani</div>
+            <div class="table-column" style = "width : 40px">1969</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">ME</div>
+            <div class="table-column" style = "width : 100px">9844265381</div>
+            <div class="table-column" style = "width : 100px">varadu.seshamani@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Vice President</div>
+            <div class="table-column" style = "width : 200px">Rajah Venkataraman</div>
+            <div class="table-column" style = "width : 40px">1977</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">ME</div>
+            <div class="table-column" style = "width : 100px">9884361543</div>
+            <div class="table-column" style = "width : 100px">rajv@fortuneconsultants.net</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Pankaj K Singh</div>
+            <div class="table-column" style = "width : 40px">1969</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">CE</div>
+            <div class="table-column" style = "width : 100px">9844265381</div>
+            <div class="table-column" style = "width : 100px">pksinghasn@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Treasurer</div>
+            <div class="table-column" style = "width : 200px">Sib Sankar Das</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">ssdas@cet.iitkgp.ernet.in</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Bangalore Chapter				
+        </div>
+        
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Dipankar Khasnabish</div>
+            <div class="table-column" style = "width : 40px">1990</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">CE</div>
+            <div class="table-column" style = "width : 100px">9880105129</div>
+            <div class="table-column" style = "width : 100px">dkhasnabish@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Madhumita Agrawal</div>
+            <div class="table-column" style = "width : 40px">2012</div>
+            <div class="table-column" style = "width : 40px">RLB</div>
+            <div class="table-column" style = "width : 40px">IP</div>
+            <div class="table-column" style = "width : 100px">9591310028</div>
+            <div class="table-column" style = "width : 100px">madhumita.agrawal@gmail.com</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Delhi / North India Chapter								
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Dinesh Kumar Jain</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">dinkjain23@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">General Secretary</div>
+            <div class="table-column" style = "width : 200px">Mitra Sarkar Fialoke</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">mitrafialoke@yahoo.co.in</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Mumbai Chapter												
+        </div>
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Anil Govind Rajadhyaksha</div>
+            <div class="table-column" style = "width : 40px">1982</div>
+            <div class="table-column" style = "width : 40px">RP</div>
+            <div class="table-column" style = "width : 40px">EE</div>
+            <div class="table-column" style = "width : 100px">9820182774</div>
+            <div class="table-column" style = "width : 100px">anil.gr@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Arvind Saxena</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">architectarvindsaxena@gmail.com</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Pune Chapter												
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Kalyan Chakravarti</div>
+            <div class="table-column" style = "width : 40px">1963</div>
+            <div class="table-column" style = "width : 40px">RK</div>
+            <div class="table-column" style = "width : 40px">EE</div>
+            <div class="table-column" style = "width : 100px">9420496636</div>
+            <div class="table-column" style = "width : 100px">kalyan.chakravarti@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Gautam Naik</div>
+            <div class="table-column" style = "width : 40px">1996</div>
+            <div class="table-column" style = "width : 40px">LLR</div>
+            <div class="table-column" style = "width : 40px">IE</div>
+            <div class="table-column" style = "width : 100px">9822549530</div>
+            <div class="table-column" style = "width : 100px">gautam@netandroid.com</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Hyderabad Chapter												
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Nrupender Rao</div>
+            <div class="table-column" style = "width : 40px">1966</div>
+            <div class="table-column" style = "width : 40px">AZ</div>
+            <div class="table-column" style = "width : 40px">ME</div>
+            <div class="table-column" style = "width : 100px">9848048661</div>
+            <div class="table-column" style = "width : 100px"> mngupta2812@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Amit Gupta</div>
+            <div class="table-column" style = "width : 40px">1994</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">EE</div>
+            <div class="table-column" style = "width : 100px">9652000227</div>
+            <div class="table-column" style = "width : 100px">amitrgupta9@gmail.com</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Chennai Chapter											
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Rajashree Natarajan</div>
+            <div class="table-column" style = "width : 40px">1991</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">EE</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">nrajashree@yahoo.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Praveen Reddy</div>
+            <div class="table-column" style = "width : 40px">1997</div>
+            <div class="table-column" style = "width : 40px">RP</div>
+            <div class="table-column" style = "width : 40px">CE</div>
+            <div class="table-column" style = "width : 100px">9841026049</div>
+            <div class="table-column" style = "width : 100px">lvpreddy@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Jt. Secretary</div>
+            <div class="table-column" style = "width : 200px">Aravindan Rangan</div>
+            <div class="table-column" style = "width : 40px">1989</div>
+            <div class="table-column" style = "width : 40px">NH</div>
+            <div class="table-column" style = "width : 40px">AR</div>
+            <div class="table-column" style = "width : 100px">9841041418</div>
+            <div class="table-column" style = "width : 100px">arvind@arvindvaruna.in</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Treasurer</div>
+            <div class="table-column" style = "width : 200px">Srikanth Chitti</div>
+            <div class="table-column" style = "width : 40px">2009</div>
+            <div class="table-column" style = "width : 40px">JCB</div>
+            <div class="table-column" style = "width : 40px">IP</div>
+            <div class="table-column" style = "width : 100px">9677275803</div>
+            <div class="table-column" style = "width : 100px">srikanth.chitti@gmail.com</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Kolkata Chapter											
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Pankaj Kumar Singh</div>
+            <div class="table-column" style = "width : 40px">1985</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">CE</div>
+            <div class="table-column" style = "width : 100px">9635908600</div>
+            <div class="table-column" style = "width : 100px">pksinghasn@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Siddharth Roy chowdhury</div>
+            <div class="table-column" style = "width : 40px">1994</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">EE</div>
+            <div class="table-column" style = "width : 100px">9652000227</div>
+            <div class="table-column" style = "width : 100px">Sidharth.iitkgp@gmail.com</div>
+          </div> 
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Kharagpur Chapter											
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Kingshuk Bhattacharyya</div>
+            <div class="table-column" style = "width : 40px">1992</div>
+            <div class="table-column" style = "width : 40px">RP</div>
+            <div class="table-column" style = "width : 40px">ME</div>
+            <div class="table-column" style = "width : 100px">9434035894</div>
+            <div class="table-column" style = "width : 100px">king@mech.iitkgp.ernet.in</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Dr Probal Sengupta</div>
+            <div class="table-column" style = "width : 40px">2005</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">9433423738</div>
+            <div class="table-column" style = "width : 100px">probal@gg.iitkgp.ernet.in</div>
+          </div> 
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Bhubaneswar Chapter										
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Ratnam Varada Raja Kumar</div>
+            <div class="table-column" style = "width : 40px">1987</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">EC</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">director@iitbbs.ac.in</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Prasenjeet Pati</div>
+            <div class="table-column" style = "width : 40px">1990</div>
+            <div class="table-column" style = "width : 40px">RK</div>
+            <div class="table-column" style = "width : 40px">EC</div>
+            <div class="table-column" style = "width : 100px">9937055988/9844025288</div>
+            <div class="table-column" style = "width : 100px">prasenjeet.pati@gmail.com</div>
+          </div> 
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Jamshedpur Chapter									
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">B K Das</div>
+            <div class="table-column" style = "width : 40px">1980</div>
+            <div class="table-column" style = "width : 40px">PH</div>
+            <div class="table-column" style = "width : 40px">ME</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">bkdas@tatasteel.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">General Secretary</div>
+            <div class="table-column" style = "width : 200px">Keshari Kumar</div>
+            <div class="table-column" style = "width : 40px">2001</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">MT</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">kesharik@tatasteel.com</div>
+          </div> 
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Jaipur Chapter									
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Satish Chandra Kulhari</div>
+            <div class="table-column" style = "width : 40px">1989</div>
+            <div class="table-column" style = "width : 40px">JCB</div>
+            <div class="table-column" style = "width : 40px">CS</div>
+            <div class="table-column" style = "width : 100px">9717593336</div>
+            <div class="table-column" style = "width : 100px">satish.kulhari@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Kartik Sharma</div>
+            <div class="table-column" style = "width : 40px">2010</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">AG</div>
+            <div class="table-column" style = "width : 100px">7349529984</div>
+            <div class="table-column" style = "width : 100px">shkartik90@gmail.com</div>
+          </div> 
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Lucknow Chapter									
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Prof BK Mathur</div>
+            <div class="table-column" style = "width : 40px">1969</div>
+            <div class="table-column" style = "width : 40px">VS</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">9434038273</div>
+            <div class="table-column" style = "width : 100px">bk259m@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Prof SP Singh</div>
+            <div class="table-column" style = "width : 40px">2006</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">BT</div>
+            <div class="table-column" style = "width : 100px">9415993333</div>
+            <div class="table-column" style = "width : 100px">sujeet97@gmail.com</div>
+          </div>         
+        </div>
+        <br>
+
+        <div class="title" style="text-align: center; font-size: 20px; margin-top : 20px">
+          Nagpur Chapter											
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Dr. Ranjit Rath</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">dr.ranjitrath@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Vice President</div>
+            <div class="table-column" style = "width : 200px">Ramesh Kherdekar </div>
+            <div class="table-column" style = "width : 40px">1966</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">ME</div>
+            <div class="table-column" style = "width : 100px">9730066452</div>
+            <div class="table-column" style = "width : 100px">rwkherdekar@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Dr. Umesh Deshpande</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+            <div class="table-column" style = "width : 100px">-</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Treasurer</div>
+            <div class="table-column" style = "width : 200px">Dr. Srikant Annavarapu</div>
+            <div class="table-column" style = "width : 40px">1980</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">MI</div>
+            <div class="table-column" style = "width : 100px">8945975548</div>
+            <div class="table-column" style = "width : 100px">srikant@mining.iitkgp.ernet.in</div>
+          </div>
+        </div>
+        <br>
+
+        <div class="title" id = "usa" style="text-align: center; font-size: 20px; margin-top : 20px">
+          California Chapter									
+        </div>
+
+        <div class="scrollable">
+          <div class = "header-row" style = "margin-top : 20px">
+            <div class="table-column" style = "width : 100px">Desig.</div>
+            <div class="table-column" style = "width : 200px">Name</div>
+            <div class="table-column" style = "width : 40px">YOG</div>
+            <div class="table-column" style = "width : 40px">Hall</div>
+            <div class="table-column" style = "width : 40px">Dept.</div>
+            <div class="table-column" style = "width : 100px">Contact</div>
+            <div class="table-column" style = "width : 100px">Email</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">President</div>
+            <div class="table-column" style = "width : 200px">Prof BK Mathur</div>
+            <div class="table-column" style = "width : 40px">1969</div>
+            <div class="table-column" style = "width : 40px">VS</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 100px">9434038273</div>
+            <div class="table-column" style = "width : 100px">bk259m@gmail.com</div>
+          </div>
+          <div class="entry-row">
+            <div class="table-column" style = "width : 100px">Secretary</div>
+            <div class="table-column" style = "width : 200px">Prof SP Singh</div>
+            <div class="table-column" style = "width : 40px">2006</div>
+            <div class="table-column" style = "width : 40px">-</div>
+            <div class="table-column" style = "width : 40px">BT</div>
+            <div class="table-column" style = "width : 100px">9415993333</div>
+            <div class="table-column" style = "width : 100px">sujeet97@gmail.com</div>
+          </div>         
+        </div>
+
+      </div>
+      </div>
+    </div>
+
     <div class="bottom-info-container">
       <div style="font-size: 14px; color: #ccd6f6;">
-        Total Counts 
+        Total Counts (as of 2018)
       </div>
-      <div style="color: #e6f1ff; padding: 0 5px;">
+      <div style="color: #e6f1ff; padding: 0 5px">
         ALUMNI: <span id="alumni">0</span> • CHAPTERS:
         <span id="chapters">0</span>
-      </div><br>
-      <div class="row" style="margin-left: -2vw;">
+      </div>
+      <div class="row" style="margin-left: -2vw; margin-top: 10px">
         <center>
-        <a href = "https://github.com/students-alumni-cell-iitkgp/alumni-network"><button id ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> Fork on Github </button></a>
-        <button id ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> Alumni Chapters across the globe </button>
-        <a href = "https://sac.iitkgp.ac.in"><button id ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> Student Alumni Cell, IIT Kharagpur </button></a>
+        <a href = "https://github.com/students-alumni-cell-iitkgp/alumni-network" target = "_blank"><button class ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> Fork on Github </button></a>
+        <button id = "chapters_modal" class ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> Alumni Chapters across the globe </button>
+        <a href = "https://sac.iitkgp.ac.in" target = "_blank"><button class ="info" type="button" style="padding-left: 20px; padding-right: 20px;"> Student Alumni Cell, IIT Kharagpur </button></a>
         </center>
       </div>
     </div>
