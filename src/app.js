@@ -116,6 +116,7 @@ function init() {
       
   getCases();
   populate_dropdowns();
+  document.getElementsByClassName("title-desc")[0].innerText = "Hover on any country to find number of alumni and chapters, or search for individuals"
 }
 
 async function getCases() {
