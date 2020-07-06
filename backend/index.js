@@ -23,23 +23,41 @@ app.get('/api', async (req, res) => {
 	});
 	let country_data = {};
 	for(let temp of countries){
-		let num_chapters = await location.findOne({
+		let num_biz_chapters = await location.findOne({
 			attributes: ['chapters'],
 			where: {
 				'country' : temp['biz_country']
 			}
 		})
-		if(num_chapters != undefined){
+		if(num_biz_chapters != undefined){
 			let country = temp['biz_country'];
 			country_data[country] = {
-				"count" : temp.dataValues.count,
-				"chapters" : num_chapters.dataValues.chapters
+				"biz_count" : temp.dataValues.count,
+				"chapters" : num_biz_chapters.dataValues.chapters,
+				"home_count" : 0
 			}
 		}
 		else{
 			console.log(temp.dataValues.biz_country);
 		}
 	}
+
+	countries = await data.findAll({
+		group: ["home_country"],
+		attributes: ['home_country', [sequelize.fn('COUNT', 'id'), 'count']], 
+	}).catch((err) => {
+		console.log(err);
+	});
+
+	for(let temp of countries){
+		if(temp['home_country'] in country_data){
+			country_data[temp['home_country']].home_count = temp.dataValues.count;
+		}
+		else{
+			console.log(temp['home_country']);
+		}
+	}
+
 	return res.json(country_data);
 });
 

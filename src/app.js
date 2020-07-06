@@ -12,7 +12,7 @@ const populate_items = require('./data_items.json');
 // Globe container
 const globeContainer = document.getElementById('globeViz');
 const colorScale = d3.scaleSequentialPow(d3.interpolateYlOrRd).exponent(1 / 4);
-const getVal = (feat) => feat.alumniData.count;
+const getVal = (feat) => feat.alumniData.biz_count;
 
 let world;
 init();
@@ -71,43 +71,42 @@ window.onclick = function(event) {
 function init() {
   world = Globe()(globeContainer)
   .globeImageUrl(GLOBE_IMAGE_URL)
-  .showGraticules(false)
+  .showGraticules(true)
   .polygonAltitude(0.05)
   .polygonCapColor((feat) => colorScale(getVal(feat)))
   .polygonSideColor(() => 'rgba(0, 100, 0, 0.05)')
   .polygonStrokeColor(() => '#111')
   .polygonLabel(
-    ({ properties: d, alumniData: c }) => `
+	({ properties: d, alumniData: c }) => 
+	`
     <div class="card">
     <img class="card-img" src="${"https://disease.sh/assets/img/flags/" + d["ISO_A2"].toLowerCase() + ".png"}" alt="flag" />
     <div class="container">
     <span class="card-title"><b>${d.ADMIN}</b></span> <br />
-    <span class="card-total-cases">${numberWithCommas(
-      c.count
-      )} Alumni</span>
-      <div class="card-spacer"></div>
-      <hr />
-      <div class="card-spacer"></div>
-      <span>${numberWithCommas(c.chapters)} chapters</span> <br />
-      <div class="card-spacer"></div>
-      <hr />
-      <div class="card-spacer"></div>
-      <div class="bottom-info">
-      </div>
-      </div>
-      </div>
-      `
-      )
-      .onPolygonHover((hoverD) =>
-      world
-      .polygonAltitude((d) => (d === hoverD ? 0.12 : 0.06))
-      .polygonCapColor((d) =>
-      d === hoverD ? 'steelblue' : colorScale(getVal(d))
-      )
-      )
-      .polygonsTransitionDuration(300);
-  
-  
+    <span class="card-total-cases">${numberWithCommas(c.biz_count)} Resident | ${numberWithCommas(c.home_count)} Working Alumni</span>
+    <div class="card-spacer"></div>
+    <hr />
+    <div class="card-spacer"></div>
+    <span>${numberWithCommas(c.chapters)} chapters</span> <br />
+    <div class="card-spacer"></div>
+    <hr/>
+    <div class="card-spacer"></div>
+    <div class="bottom-info">
+    </div>
+    </div>
+    </div>
+    `
+  )
+  .onPolygonHover((hoverD) =>
+    world
+    .polygonAltitude((d) => (d === hoverD ? 0.12 : 0.06))
+    .polygonCapColor((d) =>
+		d === hoverD ? 'steelblue' : colorScale(getVal(d))
+    )
+  )
+  .polygonsTransitionDuration(300);
+
+
   world.width([window.innerWidth]);
   world.height([window.innerHeight]);
   window.addEventListener('resize', () => {
@@ -130,7 +129,7 @@ async function getCases() {
 
   const country_names = Object.keys(data);
   country_names.forEach((item) => {
-      data_count += data[item].count;
+      data_count += data[item].biz_count;
       if(item != "NA"){
         chapters_count += data[item].chapters;
       }
