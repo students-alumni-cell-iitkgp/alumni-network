@@ -83,7 +83,7 @@ function init() {
     <img class="card-img" src="${"https://disease.sh/assets/img/flags/" + d["ISO_A2"].toLowerCase() + ".png"}" alt="flag" />
     <div class="container">
     <span class="card-title"><b>${d.ADMIN}</b></span> <br />
-    <span class="card-total-cases">${numberWithCommas(c.biz_count)} Resident | ${numberWithCommas(c.home_count)} Working Alumni</span>
+    <span class="card-total-cases">${numberWithCommas(c.home_count)} Resident | ${numberWithCommas(c.biz_count)} Working Alumni</span>
     <div class="card-spacer"></div>
     <hr />
     <div class="card-spacer"></div>
