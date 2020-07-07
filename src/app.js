@@ -31,7 +31,6 @@ let span1 = document.getElementsByClassName("close")[1];
 
 btn.onclick = function() {
 	modal.style.display = "block";
-	document.getElementsByClassName("header-row")[0].style.display = "none";
 	document.getElementsByClassName("total-results")[0].innerText = "";
 	let search_entries = document.getElementsByClassName("search-entries")[0];
 	while (search_entries.lastElementChild) {
@@ -211,7 +210,6 @@ document.getElementById ("submit").addEventListener ("click", async function sea
   }
   event.preventDefault();
   document.getElementById("submit").innerText = "Loading results..";
-	document.getElementsByClassName("header-row")[0].style.display = "block";
 	let search_entries = document.getElementsByClassName("search-entries")[0];
 	while (search_entries.lastElementChild) {
 		search_entries.removeChild(search_entries.lastElementChild);
@@ -235,20 +233,36 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 		}
 	});
 
-	let search_data = await response.json();
 	// console.log(search_data);
-	
+  
+  let hrow = document.createElement("tr");
+  hrow.className = "header-row";
+  const headers = ["Name", "YOG", "Hall", "Dept", "Degree", "Designation", "Business Location"]; 
+
+  headers.forEach((cols) => {
+    let col = document.createElement("th");
+    if(cols == "Name") col.width = "200px";
+    else if(cols == "Business Location") col.width = "300px";
+    else if(cols == "Degree") col.width = "100px";
+    else if(cols == "Designation") col.width = "250px";
+    else col.width = "100px";
+    col.innerText = cols;
+    hrow.appendChild(col);
+  })
+	search_entries.appendChild(hrow);
+  
+  let search_data = await response.json();
+
 	search_data.search_entries.forEach((item) => {
-		let row = document.createElement("div");
+		let row = document.createElement("tr");
 		row.className = "entry-row";
 		Object.keys(item).forEach((cols) => {
-			let col = document.createElement("div");
-			col.className = "table-column";
-			if(cols == "name") col.style.width = "200px";
-			else if(cols == "location") col.style.width = "250px";
-      else if(cols == "degree") col.style.width = "80px";
-      else if(cols == "profession") col.style.width = "200px";
-      else col.style.width = "40px";
+			let col = document.createElement("td");
+			if(cols == "name") col.width = "200px";
+			else if(cols == "location") col.width = "300px";
+      else if(cols == "degree") col.width = "100px";
+      else if(cols == "profession") col.width = "250px";
+      else col.width = "100px";
 			col.innerText = item[cols];
 			row.appendChild(col);
 		})
@@ -260,7 +274,6 @@ document.getElementById ("submit").addEventListener ("click", async function sea
 	else{
 		document.getElementsByClassName("total-results")[0].innerText = "Displaying " + search_data.count + " results out of " + search_data.count;
 	}
-  document.getElementsByClassName("header-row")[0].style.display = "block";
   
   document.getElementById("submit").innerText = "Submit";
 	
@@ -273,16 +286,4 @@ document.getElementById("India").addEventListener("click", function () {
 
 document.getElementById("USA").addEventListener("click", function () {
   document.querySelector('#usa').scrollIntoView({behavior: 'smooth'});
-});
-
-document.getElementById("Canada").addEventListener("click", function () {
-  document.querySelector('#canada').scrollIntoView({behavior: 'smooth'});
-});
-
-document.getElementById("UK").addEventListener("click", function () {
-  document.querySelector('#uk').scrollIntoView({behavior: 'smooth'});
-});
-
-document.getElementById("Singapore").addEventListener("click", function () {
-  document.querySelector('#singapore').scrollIntoView({behavior: 'smooth'});
 });
